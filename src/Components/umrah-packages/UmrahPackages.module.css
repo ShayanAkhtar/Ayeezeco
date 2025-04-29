@@ -1,0 +1,533 @@
+.header_section {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10% 10%;
+    background: url("https://png.pngtree.com/thumb_back/fh260/background/20200618/pngtree-blue-sky-with-cloud-background-image_339552.jpg") no-repeat center/cover; /* Match homepage sky background */
+    text-align: center;
+    color: #333; /* Dark text for readability against light background */
+    position: relative; 
+  }
+  
+
+
+  .brochure_section {
+    width: 100%;
+    padding: 60px 5%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers all child elements */
+  }
+  .image_container {
+    width: 100%;
+    height: 500px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  /* Image Styles */
+  .brochure_image {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* Changed from 'cover' to 'contain' */
+    transition: transform 0.3s ease;
+  }
+  .slick-prev {
+    left: -25px !important;
+  }
+  .slick-next {
+    right: -25px !important;
+  }
+  
+  .brochure_section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #00a8ff;
+    padding-bottom: 10px;
+    width: fit-content;
+    margin: 0 auto 40px; /* Centers horizontally and adds bottom margin */
+  }
+  
+  /* Slider Container */
+  .brochure_slider {
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the slider */
+  }
+  
+  /* Individual Brochure Cards */
+  .brochure_card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 0 10px;
+    text-align: center; /* Ensures text inside cards is centered */
+  }
+/* Add these new styles to your existing CSS */
+
+.holy_places_section {
+  width: 100%;
+  padding: 60px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: white;
+}
+
+.holy_places_section h2 {
+  font-size: 32px;
+  color: #333;
+  text-align: center;
+  border-bottom: 2px solid #00a8ff;
+  padding-bottom: 10px;
+  width: fit-content;
+}
+
+.holy_places_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.holy_place_card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 350px;
+}
+
+.holy_place_card:hover {
+  transform: translateY(-5px);
+}
+
+.holy_place_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.holy_place_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.holy_place_overlay h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.holy_place_overlay p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .holy_places_grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .holy_place_card {
+    height: 300px;
+  }
+  
+  .holy_place_overlay h3 {
+    font-size: 20px;
+  }
+  
+  .holy_place_overlay p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .holy_place_card {
+    height: 250px;
+  }
+}
+  .header_section h1 {
+    font-size: 45px;
+    line-height: 55px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); 
+  }
+  
+  .header_section p {
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-shadow: 1px 1px 5px white;
+  }
+  
+  .packages_section {
+    width: 100%;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background: #ffffff;
+  }
+  
+  .packages_section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #00a8ff;
+    padding-bottom: 10px;
+    width: fit-content;
+  }
+  
+  .packages_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .package_card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .package_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.2);
+  }
+  
+  .package_icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgb(0, 168, 255), rgb(2, 232, 255));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .package_card:hover .package_icon {
+    transform: scale(1.1);
+  }
+  
+  .package_icon img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+  }
+  
+  .package_card h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .package_card .duration {
+    font-size: 16px;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .package_card p {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .services_section {
+    width: 100%;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background: #fff;
+  }
+  .services_section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #00a8ff;
+    padding-bottom: 10px;
+    width: fit-content;
+  }
+  
+  .services_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger card size, 3 columns on web */
+    gap: 30px; /* Increased gap for better spacing */
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0; /* Added padding for vertical spacing */
+  }
+  
+  .service_card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px; /* Increased padding for larger cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap for better content spacing */
+    transition: transform 0.3s ease;
+    height: 100%; /* Ensure cards maintain height consistency */
+  }
+  
+  .service_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.2);
+  }
+  
+  .service_icon {
+    width: 70px; /* Larger icon size */
+    height: 70px;
+    background: linear-gradient(135deg, rgb(0, 168, 255), rgb(2, 232, 255));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .service_card:hover .service_icon {
+    transform: scale(1.1); /* Enhanced hover effect */
+  }
+  
+  .service_icon img {
+    width: 45px; /* Larger image within icon */
+    height: 45px;
+  }
+  
+  .service_card p {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.5; /* Improved readability */
+  }
+  .book_now_section {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+  }
+  
+  .book_now_button {
+    padding: 14px 35px;
+    background: linear-gradient(135deg, rgb(0, 168, 255), rgb(2, 232, 255));
+    border-radius: 25px;
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 163, 255, 0.3);
+  }
+  
+  .book_now_button:hover {
+    background: linear-gradient(135deg, rgb(2, 232, 255), rgb(0, 168, 255));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 163, 255, 0.4);
+  }
+  
+  .image {
+    position: relative;
+    margin-top: 70px;
+    width: 100%;
+  }
+  
+  .image img {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+  
+  .fade {
+    width: 100%;
+    position: absolute;
+    height: 120px;
+    left: -10px;
+    bottom: -70px;
+    right: -10px;
+    background-color: white;
+    filter: blur(20px);
+    z-index: 1;
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 867px) {
+    .header_section {
+      height: 50vh;
+      padding: 15% 5%;
+    }
+  
+    .header_section h1 {
+      font-size: 34px;
+      line-height: 40px;
+    }
+  
+    .header_section p {
+      font-size: 16px;
+      width: 90%;
+    }
+  
+    .packages_section{
+      padding: 40px 5%;
+    }
+  
+    .packages_section h2 {
+      font-size: 28px;
+    }
+  
+    .packages_grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+ 
+  
+    .package_card {
+      padding: 15px;
+    }
+  
+    .package_card h3 {
+      font-size: 18px;
+    }
+  
+    .package_card p {
+      font-size: 14px;
+    }
+  }
+  
+  @media only screen and (max-width: 541px) {
+    .header_section {
+      height: 40vh;
+      padding: 20% 4%;
+    }
+  
+    .header_section h1 {
+      font-size: 28px;
+    }
+  
+    .header_section p {
+      font-size: 14px;
+    }
+  
+    .packages_section h2 {
+      font-size: 24px;
+    }
+  
+    .book_now_button {
+      padding: 12px 30px;
+      font-size: 16px;
+    }
+  }
+
+
+  /* Responsive Design */
+@media only screen and (max-width: 1024px) {
+    .services_grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly smaller cards for tablets */
+      gap: 20px;
+    }
+  
+    .service_card {
+      padding: 20px;
+    }
+  
+    .service_icon {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .service_icon img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .services_grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust for smaller tablets */
+      gap: 15px;
+    }
+  
+    .service_card {
+      padding: 15px;
+    }
+  
+    .service_icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .service_icon img {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .service_card p {
+      font-size: 14px;
+    }
+  }
+  
+  @media only screen and (max-width: 541px) {
+    .services_grid {
+      grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+      gap: 15px;
+    }
+  
+    .service_card {
+      padding: 15px;
+    }
+  
+    .service_icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .service_icon img {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .service_card p {
+      font-size: 14px;
+    }
+  }

@@ -1,0 +1,391 @@
+.header_section {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15% 10%;
+    background: url("https://png.pngtree.com/thumb_back/fh260/background/20200618/pngtree-blue-sky-with-cloud-background-image_339552.jpg") no-repeat center/cover; /* Match homepage sky background */
+    text-align: center;
+    color: #333; /* Dark text for readability against light background */
+    position: relative; 
+  }
+  
+
+  .header_section h1 {
+    font-size: 45px;
+    line-height: 55px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); 
+  }
+  
+  .header_section p {
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); /* Optional: Add shadow for readability */
+  }
+  
+  .services_section {
+    width: 100%;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background: #ffffff;
+  }
+  
+  .services_section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #00a8ff;
+    padding-bottom: 10px;
+    width: fit-content;
+  }
+  
+  .brochure_section {
+    width: 100%;
+    padding: 60px 5%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers all child elements */
+  }
+  
+  .brochure_section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #00a8ff;
+    padding-bottom: 10px;
+    width: fit-content;
+    margin: 0 auto 40px; /* Centers horizontally and adds bottom margin */
+  }
+  
+  /* Slider Container */
+  .brochure_slider {
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the slider */
+  }
+  
+  /* Individual Brochure Cards */
+  .brochure_card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 0 10px;
+    text-align: center; /* Ensures text inside cards is centered */
+  }
+
+.image_container {
+  width: 100%;
+  height: 500px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Image Styles */
+.brochure_image {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* Changed from 'cover' to 'contain' */
+  transition: transform 0.3s ease;
+}
+.slick-prev {
+  left: -25px !important;
+}
+.slick-next {
+  right: -25px !important;
+}
+@media (max-width: 768px) {
+  .brochure_section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brochure_section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  
+  .image_container {
+    height: 180px;
+  }
+  
+  .brochure_card {
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image_container {
+    height: 150px;
+  }
+}
+.brochure_card:hover .brochure_image {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .image_container {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image_container {
+    height: 120px;
+  }
+}
+  .services_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .service_card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.2);
+  }
+  
+  .service_icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgb(0, 168, 255), rgb(2, 232, 255));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .service_card:hover .service_icon {
+    transform: scale(1.1);
+  }
+  
+  .service_icon img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+  }
+  
+  .service_card h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .service_card p {
+    font-size: 16px;
+    color: #423f3f;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .why_choose_section {
+    width: 100%;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background: #fff;
+  }
+  
+  .why_choose_section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #00a8ff;
+    padding-bottom: 10px;
+    width: fit-content;
+  }
+
+  
+  .why_choose_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .why_choose_card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+   
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .why_choose_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 163, 255, 0.2);
+  }
+  
+  .why_choose_card p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  .contact_section {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+  }
+  
+  .contact_button {
+    padding: 14px 35px;
+    background: linear-gradient(135deg, rgb(0, 168, 255), rgb(2, 232, 255));
+    border-radius: 25px;
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 163, 255, 0.3);
+  }
+  
+  .contact_button:hover {
+    background: linear-gradient(135deg, rgb(2, 232, 255), rgb(0, 168, 255));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 163, 255, 0.4);
+  }
+  
+  .image {
+    position: relative;
+    margin-top: 70px;
+    width: 100%;
+  }
+  
+  .image img {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+  
+  .fade {
+    width: 100%;
+    position: absolute;
+    height: 120px;
+    left: -10px;
+    bottom: -70px;
+    right: -10px;
+    background-color: white;
+    filter: blur(20px);
+    z-index: 1;
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 867px) {
+    .header_section {
+      height: 50vh;
+      padding: 15% 5%;
+    }
+  
+    .header_section h1 {
+      font-size: 34px;
+      line-height: 40px;
+    }
+  
+    .header_section p {
+      font-size: 16px;
+      width: 90%;
+    }
+  
+    .services_section,
+    .why_choose_section {
+      padding: 40px 5%;
+    }
+  
+    .services_section h2,
+    .why_choose_section h2 {
+      font-size: 28px;
+    }
+  
+    .services_grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+  
+    .why_choose_grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  
+    .service_card,
+    .why_choose_card {
+      padding: 15px;
+    }
+  
+    .service_card h3 {
+      font-size: 18px;
+    }
+  
+    .service_card p,
+    .why_choose_card p {
+      font-size: 14px;
+    }
+  }
+  
+  @media only screen and (max-width: 541px) {
+    .header_section {
+      height: 40vh;
+      padding: 20% 4%;
+    }
+  
+    .header_section h1 {
+      font-size: 28px;
+    }
+  
+    .header_section p {
+      font-size: 14px;
+    }
+  
+    .services_section h2,
+    .why_choose_section h2 {
+      font-size: 24px;
+    }
+  
+    .contact_button {
+      padding: 12px 30px;
+      font-size: 16px;
+    }
+  }

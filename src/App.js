@@ -1,0 +1,32 @@
+import "./App.css";
+import Footer from "./Components/footer/Footer";
+import "./Components/common-styles/index.css";
+import AllRoutes from "./Routes/AllRoutes";
+import { useLocation } from "react-router-dom";
+import Navbar from "./Components/navbar/Navbar";
+
+function App() {
+  const location = useLocation();
+
+  // Navbar should be transparent on both home and about pages
+  const isWhite =
+    location.pathname !== "/" &&
+    location.pathname !== "/aboutus" &&
+    location.pathname !== "/recreationaltours" &&
+    location.pathname !== "/visaservices" &&
+    location.pathname !== "/umrahpackages" &&
+    location.pathname !== "/religioustour" 
+    ;
+
+  return (
+    <>
+      <div className="App">
+        <Navbar isWhiteBackground={isWhite} isOfferVisible={false} />
+        <AllRoutes />
+      </div>
+      <Footer />
+    </>
+  );
+}
+
+export default App;
