@@ -13,6 +13,20 @@
   }
   
 
+  .header_section h1 {
+    font-size: 45px;
+    line-height: 55px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); 
+  }
+  
+  .header_section p {
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-shadow: 1px 1px 5px white;
+  }
+  
 
   .brochure_section {
     width: 100%;
@@ -167,20 +181,6 @@
     height: 250px;
   }
 }
-  .header_section h1 {
-    font-size: 45px;
-    line-height: 55px;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); 
-  }
-  
-  .header_section p {
-    font-size: 20px;
-    width: 80%;
-    margin: 0 auto;
-    text-shadow: 1px 1px 5px white;
-  }
-  
   .packages_section {
     width: 100%;
     padding: 60px 5%;

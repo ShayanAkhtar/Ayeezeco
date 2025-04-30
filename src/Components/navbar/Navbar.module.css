@@ -10,6 +10,7 @@
   left: 0;
   z-index: 10;
 }
+
 /* WhatsApp Button Styles */
 .whatsapp_button {
   display: flex;
@@ -52,24 +53,6 @@
 
 .mobile_whatsapp_button:hover {
   background-color: rgba(37, 211, 102, 0.1);
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .whatsapp_button span {
-    display: none;
-  }
-  
-  .whatsapp_button {
-    padding: 8px 12px;
-    margin-left: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .whatsapp_button {
-    display: none;
-  }
 }
 
 .upper_nav_content {
@@ -121,6 +104,7 @@
   width: 100%;
   z-index: 2;
   margin-top: 30px; /* Add space for the upper nav */
+  transition: all 0.3s ease; /* Smooth transition for scroll effects */
 }
 
 .navbar {
@@ -129,7 +113,8 @@
   height: 70px;
   background-color: transparent;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between; /* Changed from space-around to space-between */
+  padding: 0 20px; /* Added consistent padding */
 }
 
 .navbar > div > span {
@@ -164,6 +149,7 @@
   height: 100vh;
   width: 100%;
   z-index: 3;
+  transition: opacity 0.3s ease; /* Smooth fade in/out */
 }
 
 .mobile_sidebar {
@@ -174,38 +160,44 @@
   height: 100vh;
   width: 290px;
   flex-direction: column;
-  /* background-color: white; */
   padding: 40px 20px;
   gap: 10px;
   left: -100%;
   background-color: rgb(25, 163, 241, 0.1);
   backdrop-filter: blur(10px);
+  transition: transform 0.3s ease; /* Alternative to animation for smoother performance */
 }
 
+/* Keep animations for browsers that support them */
 .sidebar_anima {
   animation-name: side_anime;
-  animation-duration: 100ms;
+  animation-duration: 300ms; /* Increased for smoother animation */
   animation-fill-mode: forwards;
+  transform: translateX(100%); /* Fallback for browsers without animation support */
 }
 
 .sidebar_backward {
   animation-name: side_back;
-  animation-duration: 100ms;
+  animation-duration: 300ms; /* Increased for smoother animation */
   animation-fill-mode: forwards;
+  transform: translateX(-100%); /* Fallback for browsers without animation support */
 }
 
 @keyframes side_anime {
+  0% {
+    transform: translateX(-100%); /* Use transform instead of left for better performance */
+  }
   100% {
-    left: 0;
+    transform: translateX(0);
   }
 }
 
 @keyframes side_back {
   0% {
-    left: 0;
+    transform: translateX(0);
   }
   100% {
-    left: -100%;
+    transform: translateX(-100%);
   }
 }
 
@@ -213,13 +205,12 @@
   padding: 10px 10px;
   border-radius: 5px;
   text-decoration: none;
-  /* color: black; */
   font-size: 17px;
   color: white;
+  transition: background-color 0.2s ease; /* Smooth hover effect */
 }
 
 .hor_line {
-  /* border-bottom: 1px solid rgb(0, 0, 0, 0.1); */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   margin: -5px 0px;
 }
@@ -256,6 +247,117 @@
 .sidebar_icon {
   display: none;
   cursor: pointer;
+  padding: 8px; /* Larger touch target */
+}
+
+/* Responsive Media Queries */
+@media only screen and (max-width: 1200px) {
+  .desk_links {
+    gap: 15px; /* Reduce gap between links on smaller screens */
+  }
+  
+  .desk_links a {
+    font-size: 16px; /* Slightly smaller font size */
+  }
+  
+  .upper_nav_content {
+    padding: 0 20px; /* Add more padding on the sides */
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .whatsapp_button span {
+    display: none;
+  }
+  
+  .whatsapp_button {
+    padding: 8px 12px;
+    margin-left: 10px;
+  }
+  
+  .desk_links {
+    gap: 12px; /* Further reduce gap */
+  }
+  
+  .desk_links a {
+    font-size: 15px; /* Even smaller font */
+  }
+  
+  .navbar > div > span {
+    font-size: 22px; /* Smaller logo text */
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .upper_nav_item:nth-child(4) {
+    display: none; /* Hide the office hours on medium screens */
+  }
+}
+
+/* Tablet specific fixes - addressing the issues in the screenshot */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .upper_nav_content {
+    display: flex;
+    flex-direction: row; /* Keep items in a row */
+    justify-content: center; /* Center the items */
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .upper_nav_item {
+    margin-right: 0; /* Remove right margin as we're using gap */
+  }
+  
+  .upper_nav {
+    padding: 8px 0;
+  }
+  
+  .navbar {
+    padding: 0 30px; /* Increase padding for better spacing */
+  }
+  
+  /* Ensure the sidebar icon is properly aligned */
+  .sidebar_icon {
+    margin-left: auto;
+  }
+  
+  /* Fix the logo positioning */
+  .navbar > div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .whatsapp_button {
+    display: none;
+  }
+  
+  .upper_nav {
+    font-size: 11px;
+    padding: 5px 0;
+  }
+  
+  .upper_nav_item {
+    margin-right: 10px;
+  }
+  
+  .discount {
+    font-size: 11px;
+    height: 28px;
+  }
+  
+  /* Fix for upper nav on tablet/mobile */
+  .upper_nav_content {
+    justify-content: center;
+    padding: 0 15px;
+  }
+  
+  /* Ensure items are properly spaced */
+  .upper_nav_item {
+    margin-bottom: 0;
+    padding: 3px 0;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -268,17 +370,27 @@
   }
 
   .upper_nav_content {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* Changed from column to row */
+    justify-content: center; /* Center items */
+    align-items: center; /* Center vertically */
+    flex-wrap: wrap;
+    gap: 10px; /* Add gap between items */
   }
 
   .upper_nav_item {
-    margin-bottom: 5px;
+    margin-bottom: 0; /* Remove bottom margin */
+    margin-right: 10px; /* Add right margin */
     font-size: 11px;
   }
 
   .upper_nav {
     padding: 8px 0;
+  }
+  
+  /* Fix navbar layout */
+  .navbar {
+    justify-content: space-between;
+    padding: 0 20px;
   }
 }
 
@@ -290,7 +402,7 @@
     background-color: transparent;
     align-items: center;
     justify-content: space-between;
-    padding: 6%;
+    padding: 0 20px; /* Consistent padding */
   }
 
   .upper_nav_content {
@@ -299,5 +411,134 @@
 
   .upper_nav_item:nth-child(3) {
     display: none; /* Hide the address on very small screens */
+  }
+}
+
+/* Additional responsive breakpoints */
+@media only screen and (max-width: 600px) {
+  .upper_nav_content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .upper_nav_item {
+    margin-right: 8px;
+    font-size: 10px;
+  }
+  
+  .upper_nav_icon {
+    margin-right: 3px;
+    transform: scale(0.9);
+  }
+  
+  .navbar {
+    height: 60px; /* Smaller navbar height */
+    padding: 0 15px;
+  }
+  
+  .navbar > div > span {
+    font-size: 20px;
+  }
+  
+  .mobile_sidebar {
+    width: 260px; /* Slightly narrower sidebar */
+    padding: 30px 15px;
+  }
+  
+  .mobile_sidebar a {
+    font-size: 16px;
+    padding: 8px 8px;
+  }
+  
+  .logoouter > img {
+    width: 60px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .upper_nav {
+    padding: 4px 0;
+  }
+  
+  .upper_nav_content {
+    justify-content: space-around;
+  }
+  
+  .upper_nav_item {
+    margin-right: 5px;
+    font-size: 9px;
+  }
+  
+  .upper_nav_icon {
+    transform: scale(0.8);
+  }
+  
+  .navbar > div > span {
+    font-size: 18px;
+  }
+  
+  .discount {
+    height: 24px;
+    font-size: 10px;
+  }
+  
+  .mobile_sidebar {
+    width: 240px;
+  }
+  
+  .mobile_sidebar a {
+    font-size: 15px;
+  }
+  
+  .mobile_whatsapp_button {
+    padding: 10px 15px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .upper_nav_item:nth-child(2) {
+    display: none; /* Hide email on very small screens */
+  }
+  
+  .navbar {
+    height: 55px;
+  }
+  
+  .navbar > div > span {
+    font-size: 16px;
+  }
+  
+  .mobile_sidebar {
+    width: 220px;
+    padding: 25px 12px;
+  }
+  
+  .logoouter > img {
+    width: 50px;
+  }
+}
+
+/* Fix for devices with notches */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .upper_nav {
+    padding-top: calc(6px + env(safe-area-inset-top));
+  }
+  
+  .mobile_sidebar {
+    padding-top: calc(40px + env(safe-area-inset-top));
+  }
+}
+
+/* Improve touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .mobile_sidebar a,
+  .mobile_whatsapp_button,
+  .sidebar_icon {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+  }
+  
+  .upper_nav_item {
+    padding: 5px 0;
   }
 }

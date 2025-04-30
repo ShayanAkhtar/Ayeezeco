@@ -96,9 +96,10 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
               {[
                 "/",
                 "/aboutus",
-                "/recreationaltours",
-                "/religioustour",
+                "airticketing",
                 "/umrahpackages",
+                "/recreationaltours",
+                 "/religioustour",
                 "/visaservices",
                 "/contactus",
               ].map((path, index) => (
@@ -109,6 +110,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
                 >
                   {path
                     .replace("/", "")
+                    .replace("airticketing", "Air Ticketing")
                     .replace("umrahpackages", "Umrah Packages")
                     .replace("aboutus", "About Us")
                     .replace("visaservices", "Visa Services")
@@ -143,6 +145,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
           <div className={styles.hor_line}></div>
           {[
             "/",
+            "AirTicketing",
             "/aboutus",
             "/recreationaltours",
             "/religioustours",
@@ -158,6 +161,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
               >
                 {path
                   .replace("/", "")
+                  .replace("AirTicketing", "AirTicketing")
                   .replace("umrahpackages", "Umrah Packages")
                   .replace("aboutus", "About Us")
                   .replace("visaservices", "Visa Services")

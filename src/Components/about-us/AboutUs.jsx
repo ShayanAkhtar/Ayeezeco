@@ -125,6 +125,12 @@ function AboutUs() {
 
       {/* Mission & Vision Section */}
       <div className={styles.mission_vision_section}>
+      <div className={styles.card}>
+          <h2>Barcelona Office</h2>
+          <p>
+           Aye Zee Travel & Holidays has a sister concern at Europe namely Aeromon Tours. Aeroman has 20 plus years of experience in the field of travel & tourism services with dozen of offices at Spain and all over Europe, maintaining best reputation & services to clients. Aye Zee Travel & Holidays and Aeromon Tours has B2B collaboration with in all spheres of Travel & Tourism especially Air Ticketing & we declare each other as Branches at Pakistan & Spain/ Europe for best services & facilitation to our clients. You can reach Aeromon Tours by clicking below sign.
+          </p>
+        </div>
         <div className={styles.card}>
           <h2>Mission</h2>
           <p>

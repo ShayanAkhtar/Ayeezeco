@@ -11,6 +11,21 @@
     color: #333; /* Dark text for readability against light background */
     position: relative; /* Ensure navbar can overlay if needed */
   }
+
+  
+  .header_section h1 {
+    font-size: 45px;
+    line-height: 55px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); 
+  }
+  
+  .header_section p {
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-shadow: 1px 1px 5px white;
+  }
   /* Testimonials Section */
 .testimonials_section {
   width: 100%;
@@ -146,18 +161,6 @@
   }
 }
   
-  .header_section > h1 {
-    font-size: 45px;
-    line-height: 55px;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); /* Optional: Add shadow for readability */
-  }
-  
-  .header_section > p {
-    font-size: 20px;
-    width: 60%;
-    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5); /* Optional: Add shadow for readability */
-  }
   
   .mission_vision_section {
     width: 100%;
@@ -285,19 +288,19 @@
   /* Responsive Design */
   @media only screen and (max-width: 867px) {
     .header_section {
-      padding: 10% 5%;
+      height: 50vh;
+      padding: 15% 5%;
     }
   
-    .header_section > h1 {
-      font-size: 36px;
-      line-height: normal;
+    .header_section h1 {
+      font-size: 34px;
+      line-height: 40px;
     }
   
-    .header_section > p {
-      width: 80%;
-      font-size: 18px;
+    .header_section p {
+      font-size: 16px;
+      width: 90%;
     }
-  
     .mission_vision_section {
       padding: 10% 5%;
     }
@@ -313,7 +316,16 @@
   
   @media only screen and (max-width: 541px) {
     .header_section {
-      padding: 15% 4%;
+      height: 40vh;
+      padding: 20% 4%;
+    }
+  
+    .header_section h1 {
+      font-size: 28px;
+    }
+  
+    .header_section p {
+      font-size: 14px;
     }
   
     .offer_card {

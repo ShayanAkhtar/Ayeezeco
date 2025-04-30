@@ -11,11 +11,13 @@ function App() {
   // Navbar should be transparent on both home and about pages
   const isWhite =
     location.pathname !== "/" &&
+    location.pathname !== "/airticketing" &&
     location.pathname !== "/aboutus" &&
     location.pathname !== "/recreationaltours" &&
     location.pathname !== "/visaservices" &&
     location.pathname !== "/umrahpackages" &&
-    location.pathname !== "/religioustour" 
+    location.pathname !== "/religioustour" &&
+    location.pathname !== "/contactus" 
     ;
 
   return (
