@@ -96,7 +96,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
               {[
                 "/",
                 "/aboutus",
-                "airticketing",
+                "/airticketing",
                 "/umrahpackages",
                 "/recreationaltours",
                  "/religioustour",
@@ -145,7 +145,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
           <div className={styles.hor_line}></div>
           {[
             "/",
-            "AirTicketing",
+            "airticketing",
             "/aboutus",
             "/recreationaltours",
             "/religioustours",
@@ -161,7 +161,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
               >
                 {path
                   .replace("/", "")
-                  .replace("AirTicketing", "AirTicketing")
+                  .replace("airticketing", "Air Ticketing")
                   .replace("umrahpackages", "Umrah Packages")
                   .replace("aboutus", "About Us")
                   .replace("visaservices", "Visa Services")

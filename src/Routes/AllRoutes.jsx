@@ -9,7 +9,7 @@ import UmrahPackages from "../Components/umrah-packages/UmrahPackages";
 import ReligiousTour from "../Components/religious-tour/ReligiousTour";
 import AirTicketing from "../Components/AirTicketing/AirTicketing"
 
-
+//All Routes of Web
 function AllRoutes() {
   return (
     <Routes>
