@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from 'react';
+
 import styles from "./UmrahPackages.module.css";
 import Navbar from "../navbar/Navbar";
 import BorderBox from "../common-styles/BorderBox";
@@ -13,10 +15,12 @@ import visa1 from "../../Images/umra/umra1.jpeg";
 import visa2 from "../../Images/umra/umra2.jpeg";
 import visa3 from "../../Images/visa/visa3.jpeg";
 import Slider from "react-slick";
+import PopupBookingForm from '../PopupBookingForm/PopupBookingForm';
 
 
 function UmrahPackages() {
   const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
 
   const packages = [
     {
@@ -162,13 +166,12 @@ function UmrahPackages() {
   {/* Services Section */}
   <div className={styles.services_section}>
           
-          <button
-            onClick={() => navigate("/contactus")}
-            className={styles.book_now_button}
-          >
-            Book Now
-          </button>
+  <button onClick={() => setShowPopup(true)} className={styles.book_now_button}>
+Book Now</button>
+{showPopup && <PopupBookingForm onClose={() => setShowPopup(false)} />}
         </div>
+     
+
      
 
         {/* Closing Image Section */}

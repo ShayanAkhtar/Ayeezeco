@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { useState } from 'react';
 import styles from "./AirTicketing.module.css"
 import Navbar from "../navbar/Navbar" // Adjust path as needed
 import BorderBox from "../common-styles/BorderBox" // Adjust path as needed
@@ -11,9 +12,11 @@ import "slick-carousel/slick/slick-theme.css";
 import AirTicketing1 from "../../Images/AirTicketing/AirTicketing.jpeg";
 import AirTicketing2 from "../../Images/AirTicketing/AirTicketing2.jpeg";
 import AirTicketing3 from "../../Images/AirTicketing/AirTicketing3.jpeg";
-
+import PopupBookingForm from '../PopupBookingForm/PopupBookingForm';
 import mountains from "../homepage/images/mountains.png";
 function AirTicketing() {
+  const [showPopup, setShowPopup] = useState(false);
+
   const navigate = useNavigate()
   const brochures = [
     {
@@ -144,9 +147,10 @@ function AirTicketing() {
 
           {/* Call to Action */}
           <div className={styles.cta_section}>
-            <button onClick={() => navigate("/contactus")} className={styles.book_now_button}>
-              Book Your Flight Now
-            </button>
+          <button onClick={() => setShowPopup(true)} className={styles.book_now_button}>
+  Book Your Flight Now
+</button>
+{showPopup && <PopupBookingForm onClose={() => setShowPopup(false)} />}
           </div>
         </div>
         {/* Closing Image Section */}

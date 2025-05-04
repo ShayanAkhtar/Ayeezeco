@@ -6,6 +6,7 @@ import Navbar from "../navbar/Navbar" // Adjust path as needed
 import BorderBox from "../common-styles/BorderBox"
 import { useNavigate } from "react-router-dom"
 import mountains from "../homepage/images/mountains.png";
+import PopupBookingForm from '../PopupBookingForm/PopupBookingForm';
 
 // Import images if needed
 // import sikhTemple from "../../Images/sikh-temple.png"; // Replace with your image
@@ -14,6 +15,7 @@ import mountains from "../homepage/images/mountains.png";
 function ReligiousTour() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState("sikhism")
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
@@ -270,10 +272,11 @@ function ReligiousTour() {
 
         {/* Call to Action */}
         <div className={styles.cta_section}>
-          <button onClick={() => navigate("/contactus")} className={styles.book_now_button}>
-            Book Your Spiritual Journey
-          </button>
+        <button onClick={() => setShowPopup(true)} className={styles.book_now_button}>
+Book Now</button>
+{showPopup && <PopupBookingForm onClose={() => setShowPopup(false)} />}
         </div>
+
 
         {/* Closing Image Section */}
         <div className={styles.image}>
