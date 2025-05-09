@@ -259,7 +259,7 @@ function AboutUs() {
         )}
 
         <a 
-          href={`https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID`} 
+          href="https://search.google.com/local/writereview?placeid=ChIJaa7yEvcFGTkRTM8N77Py0NA" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.review_button}

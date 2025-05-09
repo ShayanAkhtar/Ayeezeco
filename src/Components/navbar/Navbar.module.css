@@ -1,3 +1,5 @@
+/* Navbar.module.css */
+
 /* Upper Navigation Bar */
 .upper_nav {
   background-color: #003366;
@@ -8,10 +10,99 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
+}
+
+.upper_nav_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.upper_nav_item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.upper_nav_icon {
+  margin-right: 5px;
+}
+
+.upper_nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.upper_nav a:hover {
+  text-decoration: underline;
+}
+
+/* Discount Banner */
+.discount {
+  height: 32px;
+  background: linear-gradient(to right, rgb(0, 163, 255), rgb(0, 163, 255));
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
   z-index: 10;
 }
 
-/* WhatsApp Button Styles */
+/* Main Navbar */
+.navouter {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.navbar > div > span {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Desktop Links */
+.desk_links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.desk_links a {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.desk_links a:hover {
+  color: rgb(0, 163, 255);
+}
+
+.link_active_desk {
+  color: rgb(0, 163, 255) !important;
+}
+
+/* WhatsApp Button */
 .whatsapp_button {
   display: flex;
   align-items: center;
@@ -34,14 +125,49 @@
   font-size: 20px;
 }
 
-/* Adjust desktop links container */
-.desk_links {
+/* Mobile Sidebar */
+.mobile_sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 280px;
   display: flex;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column;
+  padding: 40px 20px;
+  background-color: rgba(25, 163, 241, 0.1);
+  backdrop-filter: blur(10px);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
-/* Mobile WhatsApp Button */
+.sidebar_anima {
+  transform: translateX(0);
+}
+
+.sidebar_backward {
+  transform: translateX(-100%);
+}
+
+.mobile_sidebar a {
+  padding: 10px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.mobile_sidebar a:hover {
+  background: linear-gradient(to right, rgb(0, 163, 255), rgb(81, 162, 208));
+}
+
+.mobile_active_link {
+  background: linear-gradient(to right, rgb(0, 163, 255), rgb(81, 162, 208));
+  color: white;
+}
+
 .mobile_whatsapp_button {
   display: flex;
   align-items: center;
@@ -55,188 +181,12 @@
   background-color: rgba(37, 211, 102, 0.1);
 }
 
-.upper_nav_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-  flex-wrap: wrap;
-}
-
-.upper_nav_item {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-}
-
-.upper_nav_icon {
-  margin-right: 5px;
-}
-
-.upper_nav a {
-  color: white;
-  text-decoration: none;
-}
-
-.upper_nav a:hover {
-  text-decoration: underline;
-}
-
-/* Existing styles */
-.discount {
-  height: 32px;
-  background: linear-gradient(to right, rgb(0, 163, 255), rgb(0, 163, 255));
-  color: white;
-  font-weight: bold;
-  font-size: 13px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  margin-top: 30px; /* Add space for the upper nav */
-}
-
-.navouter {
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-  margin-top: 30px; /* Add space for the upper nav */
-  transition: all 0.3s ease; /* Smooth transition for scroll effects */
-}
-
-.navbar {
-  z-index: 1;
-  display: flex;
-  height: 70px;
-  background-color: transparent;
-  align-items: center;
-  justify-content: space-between; /* Changed from space-around to space-between */
-  padding: 0 20px; /* Added consistent padding */
-}
-
-.navbar > div > span {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.link_active_desk {
-  color: rgb(0, 163, 255) !important;
-}
-
-.desk_links {
-  display: flex;
-  gap: 25px;
-}
-
-.desk_links a {
-  color: black;
-  font-size: 18px;
-  text-decoration: none;
-  transition-duration: 300ms;
-}
-
-.desk_links a:hover {
-  color: rgb(0, 163, 255);
-}
-
-.blank_screen {
-  background-color: black;
-  opacity: 0.4;
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  z-index: 3;
-  transition: opacity 0.3s ease; /* Smooth fade in/out */
-}
-
-.mobile_sidebar {
-  position: fixed;
-  top: 0;
-  z-index: 9999;
-  display: flex;
-  height: 100vh;
-  width: 290px;
-  flex-direction: column;
-  padding: 40px 20px;
-  gap: 10px;
-  left: -100%;
-  background-color: rgb(25, 163, 241, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease; /* Alternative to animation for smoother performance */
-}
-
-/* Keep animations for browsers that support them */
-.sidebar_anima {
-  animation-name: side_anime;
-  animation-duration: 300ms; /* Increased for smoother animation */
-  animation-fill-mode: forwards;
-  transform: translateX(100%); /* Fallback for browsers without animation support */
-}
-
-.sidebar_backward {
-  animation-name: side_back;
-  animation-duration: 300ms; /* Increased for smoother animation */
-  animation-fill-mode: forwards;
-  transform: translateX(-100%); /* Fallback for browsers without animation support */
-}
-
-@keyframes side_anime {
-  0% {
-    transform: translateX(-100%); /* Use transform instead of left for better performance */
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes side_back {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.mobile_sidebar a {
-  padding: 10px 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 17px;
-  color: white;
-  transition: background-color 0.2s ease; /* Smooth hover effect */
-}
-
-.hor_line {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  margin: -5px 0px;
-}
-
-.mobile_sidebar a:hover {
-  background: linear-gradient(to right, rgb(0, 163, 255), rgb(81, 162, 208));
-  color: white;
-}
-
-.mobile_sidebar a.mobile_active_link {
-  background: linear-gradient(to right, rgb(0, 163, 255), rgb(81, 162, 208));
-  color: white;
-}
-
-.logo {
-  color: white;
-}
-
+/* Logo */
 .logoouter {
-  width: inherit;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  height: 60px;
   gap: 5px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .logoouter > img {
@@ -244,301 +194,149 @@
   mix-blend-mode: color-dodge;
 }
 
+.logo {
+  color: white;
+}
+
+.hor_line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 5px 0;
+}
+
+/* Blank Screen Overlay */
+.blank_screen {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 998;
+  transition: opacity 0.3s ease;
+}
+
+/* Sidebar Icon */
 .sidebar_icon {
   display: none;
   cursor: pointer;
-  padding: 8px; /* Larger touch target */
+  padding: 8px;
 }
 
-/* Responsive Media Queries */
-@media only screen and (max-width: 1200px) {
+/* Media Queries */
+@media (min-width: 1000px) {
   .desk_links {
-    gap: 15px; /* Reduce gap between links on smaller screens */
-  }
-  
-  .desk_links a {
-    font-size: 16px; /* Slightly smaller font size */
-  }
-  
-  .upper_nav_content {
-    padding: 0 20px; /* Add more padding on the sides */
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .whatsapp_button span {
-    display: none;
-  }
-  
-  .whatsapp_button {
-    padding: 8px 12px;
-    margin-left: 10px;
-  }
-  
-  .desk_links {
-    gap: 12px; /* Further reduce gap */
-  }
-  
-  .desk_links a {
-    font-size: 15px; /* Even smaller font */
-  }
-  
-  .navbar > div > span {
-    font-size: 22px; /* Smaller logo text */
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .upper_nav_item:nth-child(4) {
-    display: none; /* Hide the office hours on medium screens */
-  }
-}
-
-/* Tablet specific fixes - addressing the issues in the screenshot */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .upper_nav_content {
     display: flex;
-    flex-direction: row; /* Keep items in a row */
-    justify-content: center; /* Center the items */
-    flex-wrap: wrap;
-    gap: 15px;
   }
-  
-  .upper_nav_item {
-    margin-right: 0; /* Remove right margin as we're using gap */
-  }
-  
-  .upper_nav {
-    padding: 8px 0;
-  }
-  
-  .navbar {
-    padding: 0 30px; /* Increase padding for better spacing */
-  }
-  
-  /* Ensure the sidebar icon is properly aligned */
   .sidebar_icon {
-    margin-left: auto;
-  }
-  
-  /* Fix the logo positioning */
-  .navbar > div {
-    display: flex;
-    align-items: center;
+    display: none;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .whatsapp_button {
+@media (max-width: 999px) {
+  .desk_links {
     display: none;
   }
-  
+  .sidebar_icon {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
   .upper_nav {
     font-size: 11px;
     padding: 5px 0;
   }
-  
-  .upper_nav_item {
-    margin-right: 10px;
+  .upper_nav_item:nth-child(3),
+  .upper_nav_item:nth-child(4) {
+    display: none;
   }
-  
   .discount {
     font-size: 11px;
     height: 28px;
+    margin-top: 28px;
   }
-  
-  /* Fix for upper nav on tablet/mobile */
-  .upper_nav_content {
-    justify-content: center;
-    padding: 0 15px;
+  .navouter {
+    margin-top: 28px;
   }
-  
-  /* Ensure items are properly spaced */
-  .upper_nav_item {
-    margin-bottom: 0;
-    padding: 3px 0;
+  .mobile_sidebar {
+    width: 260px;
+    padding: 30px 15px;
   }
-}
-
-@media only screen and (max-width: 1000px) {
-  .desk_links {
+  .whatsapp_button {
     display: none;
   }
+}
 
-  .sidebar_icon {
-    display: block;
-  }
-
-  .upper_nav_content {
-    flex-direction: row; /* Changed from column to row */
-    justify-content: center; /* Center items */
-    align-items: center; /* Center vertically */
-    flex-wrap: wrap;
-    gap: 10px; /* Add gap between items */
-  }
-
-  .upper_nav_item {
-    margin-bottom: 0; /* Remove bottom margin */
-    margin-right: 10px; /* Add right margin */
-    font-size: 11px;
-  }
-
+@media (max-width: 600px) {
   .upper_nav {
-    padding: 8px 0;
-  }
-  
-  /* Fix navbar layout */
-  .navbar {
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .navbar {
-    z-index: 1;
-    display: flex;
-    height: 70px;
-    background-color: transparent;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px; /* Consistent padding */
-  }
-
-  .upper_nav_content {
-    padding: 0 10px;
-  }
-
-  .upper_nav_item:nth-child(3) {
-    display: none; /* Hide the address on very small screens */
-  }
-}
-
-/* Additional responsive breakpoints */
-@media only screen and (max-width: 600px) {
-  .upper_nav_content {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .upper_nav_item {
-    margin-right: 8px;
     font-size: 10px;
   }
-  
-  .upper_nav_icon {
-    margin-right: 3px;
-    transform: scale(0.9);
+  .upper_nav_content {
+    gap: 8px;
   }
-  
   .navbar {
-    height: 60px; /* Smaller navbar height */
+    height: 60px;
     padding: 0 15px;
   }
-  
   .navbar > div > span {
     font-size: 20px;
   }
-  
   .mobile_sidebar {
-    width: 260px; /* Slightly narrower sidebar */
-    padding: 30px 15px;
+    width: 240px;
   }
-  
   .mobile_sidebar a {
     font-size: 16px;
-    padding: 8px 8px;
   }
-  
   .logoouter > img {
     width: 60px;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .upper_nav {
     padding: 4px 0;
   }
-  
-  .upper_nav_content {
-    justify-content: space-around;
+  .upper_nav_item:nth-child(2) {
+    display: none;
   }
-  
-  .upper_nav_item {
-    margin-right: 5px;
-    font-size: 9px;
-  }
-  
-  .upper_nav_icon {
-    transform: scale(0.8);
-  }
-  
   .navbar > div > span {
     font-size: 18px;
   }
-  
   .discount {
-    height: 24px;
     font-size: 10px;
+    height: 24px;
+    margin-top: 26px;
   }
-  
-  .mobile_sidebar {
-    width: 240px;
+  .navouter {
+    margin-top: 26px;
   }
-  
-  .mobile_sidebar a {
-    font-size: 15px;
-  }
-  
-  .mobile_whatsapp_button {
-    padding: 10px 15px;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .upper_nav_item:nth-child(2) {
-    display: none; /* Hide email on very small screens */
-  }
-  
-  .navbar {
-    height: 55px;
-  }
-  
-  .navbar > div > span {
-    font-size: 16px;
-  }
-  
   .mobile_sidebar {
     width: 220px;
     padding: 25px 12px;
   }
-  
+  .mobile_sidebar a {
+    font-size: 15px;
+  }
   .logoouter > img {
     width: 50px;
   }
 }
 
-/* Fix for devices with notches */
+/* Notch support */
 @supports (padding-top: env(safe-area-inset-top)) {
   .upper_nav {
     padding-top: calc(6px + env(safe-area-inset-top));
   }
-  
   .mobile_sidebar {
     padding-top: calc(40px + env(safe-area-inset-top));
   }
 }
 
-/* Improve touch targets for mobile */
+/* Touch target optimization */
 @media (hover: none) and (pointer: coarse) {
   .mobile_sidebar a,
   .mobile_whatsapp_button,
   .sidebar_icon {
-    min-height: 44px; /* Apple's recommended minimum touch target size */
-  }
-  
-  .upper_nav_item {
-    padding: 5px 0;
+    min-height: 44px;
   }
 }
