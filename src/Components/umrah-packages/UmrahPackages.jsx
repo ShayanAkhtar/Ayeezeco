@@ -15,7 +15,7 @@ import visa1 from "../../Images/umra/umra1.jpeg";
 import visa2 from "../../Images/umra/umra2.jpeg";
 import visa3 from "../../Images/visa/visa3.jpeg";
 import Slider from "react-slick";
-import PopupBookingForm from '../PopupBookingForm/PopupBookingForm';
+import PopupBookingForm from '../PopupUmra/PopupUmra';
 
 
 function UmrahPackages() {

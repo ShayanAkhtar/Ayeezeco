@@ -6,7 +6,7 @@ import Navbar from "../navbar/Navbar" // Adjust path as needed
 import BorderBox from "../common-styles/BorderBox"
 import { useNavigate } from "react-router-dom"
 import mountains from "../homepage/images/mountains.png";
-import PopupBookingForm from '../PopupBookingForm/PopupBookingForm';
+import PopupBookingForm from '../PopupTour/PopupTour';
 
 // Import images if needed
 // import sikhTemple from "../../Images/sikh-temple.png"; // Replace with your image

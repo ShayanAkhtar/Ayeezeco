@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from 'react';
 import styles from "./VisaServices.module.css";
 import Navbar from "../navbar/Navbar"; // Adjust path as needed
 import BorderBox from "../common-styles/BorderBox";
@@ -10,8 +11,12 @@ import "slick-carousel/slick/slick-theme.css";
 import visa1 from "../../Images/visa/visa1.jpeg";
 import visa2 from "../../Images/visa/visa2.jpeg";
 import visa3 from "../../Images/visa/visa3.jpeg";
+import PopupBookingForm from '../PopupVisa/PopupVisa';
+
 function VisaServices() {
   const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
+
   const brochures = [
     {
       id: 1,
@@ -131,12 +136,12 @@ function VisaServices() {
               <p>Tailored solutions for complex immigration cases.</p>
             </div>
           </div>
-          <button
-            onClick={() => navigate("/contactus")}
-            className={styles.contact_button}
-          >
-            Contact Us
-          </button>
+          <div className={styles.services_section}>
+          
+          <button onClick={() => setShowPopup(true)} className={styles.book_now_button}>
+        Book Now</button>
+        {showPopup && <PopupBookingForm onClose={() => setShowPopup(false)} />}
+                </div>
         </div>
 
 

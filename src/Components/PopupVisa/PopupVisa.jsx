@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import styles from './PopupBookingForm.module.css';
+import styles from './PopupVisa.module.css';
 import axios from 'axios';
 
-function PopupBookingForm({ onClose }) {
+function PopupVisa({ onClose }) {
   const [formData, setFormData] = useState({
-    from: "",
-    to: "",
-    departureDate: "",
-    arrivalDate: "",
-    wheelchair: "No",
-    fullName: "",
-    contactNumber: "",
-    email: "",
+    country: '',
+    name: '',
+    contactNumber: '',
+    email: '',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -29,8 +25,8 @@ function PopupBookingForm({ onClose }) {
 
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "New Booking Request",
-      from_name: formData.fullName,
+      subject: "New Travel Inquiry",
+      from_name: formData.name,
       ...formData,
     };
 
@@ -40,14 +36,14 @@ function PopupBookingForm({ onClose }) {
       });
 
       if (response.data.success) {
-        alert("Booking request sent successfully!");
-        onClose(); // Close the popup
+        alert("Form submitted successfully!");
+        onClose();
       } else {
-        alert("Failed to send booking request.");
+        alert("Submission failed. Please try again.");
       }
     } catch (error) {
-      console.error("Error sending booking email:", error);
-      alert("An error occurred. Please try again.");
+      console.error("Submission error:", error);
+      alert("An error occurred during submission.");
     } finally {
       setIsLoading(false);
     }
@@ -62,33 +58,25 @@ function PopupBookingForm({ onClose }) {
           </div>
         )}
         <button className={styles.closeButton} onClick={onClose}>×</button>
-        <h2>Book & Buy</h2>
-        <p>To make your trip, please fill your travel plan.</p>
+        <h2>Inquiry Form</h2>
+        <p>Please fill out your details below.</p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
-            From (Airport):
-            <input type="text" name="from" onChange={handleChange} />
+            Select a Country:
+            <select name="country" required onChange={handleChange}>
+              <option value="">-- Select --</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="UAE">UAE</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Other">Other</option>
+            </select>
           </label>
           <label>
-            To (Airport):
-            <input type="text" name="to" onChange={handleChange} />
-          </label>
-          <label>
-            Departure Date:
-            <input type="date" name="departureDate" onChange={handleChange} />
-          </label>
-          <label>
-            Arrival/Return Date:
-            <input type="date" name="arrivalDate" onChange={handleChange} />
-          </label>
-          
-          <hr />
-          <h4>Contact Details <span className={styles.required}>*</span></h4>
-
-          <label>
-            Full Name (as on passport):
-            <input type="text" name="fullName" required onChange={handleChange} />
+            Name:
+            <input type="text" name="name" required onChange={handleChange} />
           </label>
           <label>
             Contact Number:
@@ -99,11 +87,13 @@ function PopupBookingForm({ onClose }) {
             <input type="email" name="email" required onChange={handleChange} />
           </label>
 
-          <button type="submit" className={styles.submitButton}>Submit</button>
+          <button type="submit" className={styles.submitButton} disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Submit"}
+          </button>
         </form>
       </div>
     </div>
   );
 }
 
-export default PopupBookingForm;
+export default PopupVisa;

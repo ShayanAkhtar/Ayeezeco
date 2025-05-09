@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import styles from './PopupBookingForm.module.css';
+import styles from './PopupUmra.module.css';
 import axios from 'axios';
 
-function PopupBookingForm({ onClose }) {
+function PopupUmra({ onClose }) {
   const [formData, setFormData] = useState({
-    from: "",
-    to: "",
-    departureDate: "",
-    arrivalDate: "",
-    wheelchair: "No",
-    fullName: "",
-    contactNumber: "",
-    email: "",
+    numberOfPersons: '',
+    numberOfDays: '',
+    travelDate: '',
+    travelFrom: '',
+    travelTo: '',
+    hotelType: '',
+    transportType: 'Public',
+    name: '',
+    contactNumber: '',
+    email: '',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -29,8 +31,8 @@ function PopupBookingForm({ onClose }) {
 
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "New Booking Request",
-      from_name: formData.fullName,
+      subject: "New Travel Booking Request",
+      from_name: formData.name,
       ...formData,
     };
 
@@ -41,12 +43,12 @@ function PopupBookingForm({ onClose }) {
 
       if (response.data.success) {
         alert("Booking request sent successfully!");
-        onClose(); // Close the popup
+        onClose();
       } else {
         alert("Failed to send booking request.");
       }
     } catch (error) {
-      console.error("Error sending booking email:", error);
+      console.error("Submission error:", error);
       alert("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
@@ -62,33 +64,48 @@ function PopupBookingForm({ onClose }) {
           </div>
         )}
         <button className={styles.closeButton} onClick={onClose}>×</button>
-        <h2>Book & Buy</h2>
-        <p>To make your trip, please fill your travel plan.</p>
+        <h2>Travel Booking Form</h2>
+        <p>Please fill out your travel preferences below.</p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
-            From (Airport):
-            <input type="text" name="from" onChange={handleChange} />
+            Number of Persons:
+            <input type="number" name="numberOfPersons" required onChange={handleChange} />
           </label>
           <label>
-            To (Airport):
-            <input type="text" name="to" onChange={handleChange} />
+            Number of Days:
+            <input type="number" name="numberOfDays" required onChange={handleChange} />
           </label>
           <label>
-            Departure Date:
-            <input type="date" name="departureDate" onChange={handleChange} />
+            Date of Travel:
+            <input type="date" name="travelDate" required onChange={handleChange} />
           </label>
           <label>
-            Arrival/Return Date:
-            <input type="date" name="arrivalDate" onChange={handleChange} />
+            Travel From (City):
+            <input type="text" name="travelFrom" required onChange={handleChange} />
           </label>
-          
+          <label>
+            Travel To (City):
+            <input type="text" name="travelTo" required onChange={handleChange} />
+          </label>
+          <label>
+            Type of Hotel:
+            <input type="text" name="hotelType" required onChange={handleChange} />
+          </label>
+          <label>
+            Transport Type:
+            <select name="transportType" value={formData.transportType} onChange={handleChange}>
+              <option value="Public">Public</option>
+              <option value="Private">Private</option>
+            </select>
+          </label>
+
           <hr />
           <h4>Contact Details <span className={styles.required}>*</span></h4>
 
           <label>
-            Full Name (as on passport):
-            <input type="text" name="fullName" required onChange={handleChange} />
+            Name:
+            <input type="text" name="name" required onChange={handleChange} />
           </label>
           <label>
             Contact Number:
@@ -99,11 +116,13 @@ function PopupBookingForm({ onClose }) {
             <input type="email" name="email" required onChange={handleChange} />
           </label>
 
-          <button type="submit" className={styles.submitButton}>Submit</button>
+          <button type="submit" className={styles.submitButton} disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Submit"}
+          </button>
         </form>
       </div>
     </div>
   );
 }
 
-export default PopupBookingForm;
+export default PopupUmra;

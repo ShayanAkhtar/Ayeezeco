@@ -13,7 +13,7 @@ import Recreational3 from "../../Images/recreational/Recreational3.jpeg";
 import Recreational4 from "../../Images/recreational/Recreational4.jpeg";
 import Recreational5 from "../../Images/recreational/Recreational5.jpeg";
 import mountains from "../homepage/images/mountains.png";
-import PopupBookingForm from '../PopupBookingForm/PopupBookingForm';
+import PopupBookingForm from '../PopupTour/PopupTour';
 
 function RecreationalTours() {
   const navigate = useNavigate();

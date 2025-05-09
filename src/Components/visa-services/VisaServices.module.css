@@ -389,3 +389,21 @@
       font-size: 16px;
     }
   }
+  .book_now_button {
+    padding: 14px 35px;
+    background: linear-gradient(135deg, rgb(0, 168, 255), rgb(2, 232, 255));
+    border-radius: 25px;
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 163, 255, 0.3);
+  }
+  
+  .book_now_button:hover {
+    background: linear-gradient(135deg, rgb(2, 232, 255), rgb(0, 168, 255));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 163, 255, 0.4);
+  }
