@@ -12,6 +12,8 @@ function PopupBookingForm({ onClose }) {
     fullName: "",
     contactNumber: "",
     email: "",
+    tripType: "oneway", // default value
+
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +33,7 @@ function PopupBookingForm({ onClose }) {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: "New Booking Request",
       from_name: formData.fullName,
+      trip_type: formData.tripType, // explicit key if needed
       ...formData,
     };
 
@@ -74,6 +77,15 @@ function PopupBookingForm({ onClose }) {
             To (Airport):
             <input type="text" name="to" onChange={handleChange} />
           </label>
+          <label>
+  Trip Type:
+  <select name="tripType" value={formData.tripType} onChange={handleChange}>
+    <option value="oneway">One Way</option>
+    <option value="return">Return</option>
+    <option value="multisector">Multi-sector</option>
+  </select>
+</label>
+
           <label>
             Departure Date:
             <input type="date" name="departureDate" onChange={handleChange} />

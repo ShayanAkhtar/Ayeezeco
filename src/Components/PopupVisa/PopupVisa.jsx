@@ -5,6 +5,7 @@ import axios from 'axios';
 function PopupVisa({ onClose }) {
   const [formData, setFormData] = useState({
     country: '',
+    visaCategory: 'visit',
     name: '',
     contactNumber: '',
     email: '',
@@ -23,11 +24,18 @@ function PopupVisa({ onClose }) {
 
     const WEB3FORMS_ACCESS_KEY = "c2113b2a-63cb-4a3b-83d0-cbc936de8a43";
 
+    const visaDisplay = {
+      visit: "Visit Visa",
+      business: "Business Visa",
+    }[formData.visaCategory];
+  
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: "New Travel Inquiry",
       from_name: formData.name,
       ...formData,
+      visaCategory: visaDisplay,
+
     };
 
     try {
@@ -64,16 +72,15 @@ function PopupVisa({ onClose }) {
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
             Select a Country:
-            <select name="country" required onChange={handleChange}>
-              <option value="">-- Select --</option>
-              <option value="Pakistan">Pakistan</option>
-              <option value="UAE">UAE</option>
-              <option value="Turkey">Turkey</option>
-              <option value="Saudi Arabia">Saudi Arabia</option>
-              <option value="Qatar">Qatar</option>
-              <option value="Other">Other</option>
-            </select>
-          </label>
+            <input type="text" name="country" required onChange={handleChange} />
+            </label>
+            <label>
+  Visa Category:
+  <select name="visaCategory" value={formData.visaCategory} onChange={handleChange} required>
+    <option value="visit">Visit Visa</option>
+    <option value="business">Business Visa</option>
+  </select>
+</label>
           <label>
             Name:
             <input type="text" name="name" required onChange={handleChange} />

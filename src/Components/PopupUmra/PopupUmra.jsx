@@ -9,7 +9,7 @@ function PopupUmra({ onClose }) {
     travelDate: '',
     travelFrom: '',
     travelTo: '',
-    hotelType: '',
+    hotelType: 'economy', // default value
     transportType: 'Public',
     name: '',
     contactNumber: '',
@@ -28,11 +28,21 @@ function PopupUmra({ onClose }) {
     setIsLoading(true);
 
     const WEB3FORMS_ACCESS_KEY = "c2113b2a-63cb-4a3b-83d0-cbc936de8a43";
-
+    
+    const hotelTypeDisplay = {
+      economy: "Economy",
+      "2star": "2 Star",
+      "3star": "3 Star",
+      "4star": "4 Star",
+    }[formData.hotelType];
+    
+    
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: "New Travel Booking Request",
       from_name: formData.name,
+      hotelType: hotelTypeDisplay,
+
       ...formData,
     };
 
@@ -89,9 +99,15 @@ function PopupUmra({ onClose }) {
             <input type="text" name="travelTo" required onChange={handleChange} />
           </label>
           <label>
-            Type of Hotel:
-            <input type="text" name="hotelType" required onChange={handleChange} />
-          </label>
+  Type of Hotel:
+  <select name="hotelType" value={formData.hotelType} onChange={handleChange} required>
+    <option value="economy">Economy</option>
+    <option value="2star">2 Star</option>
+    <option value="3star">3 Star</option>
+    <option value="4star">4 Star</option>
+  </select>
+</label>
+
           <label>
             Transport Type:
             <select name="transportType" value={formData.transportType} onChange={handleChange}>

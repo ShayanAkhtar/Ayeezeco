@@ -97,13 +97,7 @@ function PopupTour({ onClose }) {
           </label>
           <label>
             Hotel Category:
-            <select name="hotelCategory" onChange={handleChange} required>
-              <option value="">Select Hotel Category</option>
-              <option value="3-Star">3-Star</option>
-              <option value="4-Star">4-Star</option>
-              <option value="5-Star">5-Star</option>
-              <option value="Luxury">Luxury</option>
-            </select>
+            <input type="text" name="hotelCategory" required onChange={handleChange} />
           </label>
           <label>
             Transport Type:
