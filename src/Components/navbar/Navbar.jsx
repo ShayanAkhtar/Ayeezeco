@@ -1,24 +1,25 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import styles from "./Navbar.module.css"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import logo from "../../Images/logo_navbar.webp"
 import BorderBox from "../common-styles/BorderBox"
+import styles from "./Navbar.module.css"
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
+import "./Navbar.module.css"
 
 function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
-  const [colorChange, setColorchange] = useState(false)
-  const [sideBarHidden, setSideBarHidden] = useState(null)
+  const [colorChange, setColorChange] = useState(false)
+  const [sideBarHidden, setSideBarHidden] = useState(true)
   const navigate = useNavigate()
   const location = useLocation()
 
   const changeNavbarColor = () => {
     if (window.scrollY >= 30) {
-      setColorchange(true)
+      setColorChange(true)
     } else {
-      setColorchange(false)
+      setColorChange(false)
     }
   }
 
@@ -32,7 +33,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
   }, [isWhiteBackground])
 
   const handleShowSideMenu = () => {
-    setSideBarHidden((prev) => (prev === null ? false : !prev))
+    setSideBarHidden(!sideBarHidden)
   }
 
   const handleBlankScreen = () => {
@@ -40,7 +41,15 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
   }
 
   const handleLinkClick = () => {
-    handleShowSideMenu()
+    setSideBarHidden(true)
+  }
+
+  // Determine if a link is active
+  const isLinkActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/" // Exact match for home
+    }
+    return location.pathname === path // Exact match for other pages
   }
 
   return (
@@ -69,7 +78,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
 
       <BorderBox>
         <div
-          className={`${styles.blank_screen} ${sideBarHidden || sideBarHidden === null ? "hidden" : ""}`}
+          className={`${styles.blank_screen} ${sideBarHidden ? "hidden" : ""}`}
           onClick={handleBlankScreen}
         ></div>
         {isOfferVisible && !colorChange && (
@@ -85,7 +94,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
             boxShadow: isWhiteBackground || colorChange ? "rgba(17, 17, 26, 0.1) 0px 1px 0px" : "none",
           }}
         >
-          <div className={`${styles.navbar} max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4`}>
+          <div className={`${styles.navbar} max-w-screen-xl flex items-center justify-between mx-auto p-4`}>
             <div style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
               <span className="text-3xl font-semibold whitespace-nowrap">Ayezeeco</span>
             </div>
@@ -99,14 +108,14 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
                 "/airticketing",
                 "/umrahpackages",
                 "/recreationaltours",
-                 "/religioustour",
+                "/religioustour",
                 "/visaservices",
                 "/contactus",
               ].map((path, index) => (
                 <Link
                   key={index}
                   to={path}
-                  className={`${location.pathname.includes(path) ? styles.link_active_desk : ""} font-semibold`}
+                  className={`${isLinkActive(path) ? styles.link_active_desk : ""} font-semibold`}
                 >
                   {path
                     .replace("/", "")
@@ -119,8 +128,6 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
                     .replace("religioustour", "Religious Tours") || "Home"}
                 </Link>
               ))}
-              
-              {/* WhatsApp Button */}
               <a
                 href="https://wa.me/923226803850"
                 target="_blank"
@@ -136,7 +143,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
 
         {/* Mobile Sidebar */}
         <div
-          className={`${styles.mobile_sidebar} ${!sideBarHidden && sideBarHidden !== null ? styles.sidebar_anima : sideBarHidden === null ? "" : styles.sidebar_backward} z-50`}
+          className={`${styles.mobile_sidebar} ${sideBarHidden ? styles.sidebar_backward : styles.sidebar_anima} z-50`}
         >
           <div className={styles.logoouter}>
             <img src={logo || "/placeholder.svg"} alt="Logo" />
@@ -145,7 +152,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
           <div className={styles.hor_line}></div>
           {[
             "/",
-            "airticketing",
+            "/airticketing",
             "/aboutus",
             "/recreationaltours",
             "/religioustours",
@@ -157,7 +164,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
               <Link
                 onClick={handleLinkClick}
                 to={path}
-                className={`${location.pathname.includes(path) ? styles.mobile_active_link : ""} font-semibold`}
+                className={`${isLinkActive(path) ? styles.mobile_active_link : ""} font-semibold`}
               >
                 {path
                   .replace("/", "")
@@ -172,8 +179,6 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
               <div className={styles.hor_line}></div>
             </React.Fragment>
           ))}
-          
-          {/* WhatsApp in Mobile Menu */}
           <div className={styles.hor_line}></div>
           <a
             href="https://wa.me/923226803850"
