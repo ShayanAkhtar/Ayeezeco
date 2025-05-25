@@ -13,6 +13,9 @@ function PopupTour({ onClose }) {
     tripEndDate: '',
     hotelCategory: '',
     transportType: 'Public',
+    numberOfPersons: '',
+    numberOfDays: '',
+    travelMode: '',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -104,6 +107,26 @@ function PopupTour({ onClose }) {
             <select name="transportType" value={formData.transportType} onChange={handleChange}>
               <option value="Public">Public</option>
               <option value="Private">Private</option>
+            </select>
+          </label>
+
+          {/* New Fields Below */}
+          <label>
+            Number of Persons:
+            <input type="number" name="numberOfPersons" required onChange={handleChange} />
+          </label>
+
+          <label>
+            Number of Days:
+            <input type="number" name="numberOfDays" required onChange={handleChange} />
+          </label>
+
+          <label>
+            Travel Mode:
+            <select name="travelMode" value={formData.travelMode} required onChange={handleChange}>
+              <option value="">Select Travel Mode</option>
+              <option value="By Air">By Air</option>
+              <option value="By Road">By Road</option>
             </select>
           </label>
 

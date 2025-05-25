@@ -6,6 +6,10 @@ function PopupVisa({ onClose }) {
   const [formData, setFormData] = useState({
     country: '',
     visaCategory: 'visit',
+    studyVisaCountry: '',
+    educationLevel: '',
+    livingCity: '',
+    numberOfPersons: '',
     name: '',
     contactNumber: '',
     email: '',
@@ -24,18 +28,19 @@ function PopupVisa({ onClose }) {
 
     const WEB3FORMS_ACCESS_KEY = "c2113b2a-63cb-4a3b-83d0-cbc936de8a43";
 
+    // Map visaCategory to display string
     const visaDisplay = {
       visit: "Visit Visa",
       business: "Business Visa",
-    }[formData.visaCategory];
-  
+      study: `Study Visa - ${formData.studyVisaCountry}`
+    }[formData.visaCategory] || formData.visaCategory;
+
     const payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: "New Travel Inquiry",
       from_name: formData.name,
       ...formData,
       visaCategory: visaDisplay,
-
     };
 
     try {
@@ -73,22 +78,56 @@ function PopupVisa({ onClose }) {
           <label>
             Select a Country:
             <input type="text" name="country" required onChange={handleChange} />
-            </label>
+          </label>
+
+          <label>
+            Visa Category:
+            <select name="visaCategory" value={formData.visaCategory} onChange={handleChange} required>
+              <option value="visit">Visit Visa</option>
+              <option value="business">Business Visa</option>
+              <option value="study">Study Visa</option>
+            </select>
+          </label>
+
+          {/* Conditionally show Study Visa Country select if visaCategory is 'study' */}
+          {formData.visaCategory === 'study' && (
             <label>
-  Visa Category:
-  <select name="visaCategory" value={formData.visaCategory} onChange={handleChange} required>
-    <option value="visit">Visit Visa</option>
-    <option value="business">Business Visa</option>
-  </select>
-</label>
+              Study Visa Country:
+              <select name="studyVisaCountry" value={formData.studyVisaCountry} onChange={handleChange} required>
+                <option value="">Select Country</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Australia">Australia</option>
+                <option value="New Zealand">New Zealand</option>
+              </select>
+            </label>
+          )}
+
+          <label>
+            Education Level:
+            <input type="text" name="educationLevel" onChange={handleChange} />
+          </label>
+
+          <label>
+            Living City:
+            <input type="text" name="livingCity" onChange={handleChange} />
+          </label>
+
+          <label>
+            Number of Persons:
+            <input type="number" name="numberOfPersons" min="1" onChange={handleChange} />
+          </label>
+
           <label>
             Name:
             <input type="text" name="name" required onChange={handleChange} />
           </label>
+
           <label>
             Contact Number:
             <input type="text" name="contactNumber" required onChange={handleChange} />
           </label>
+
           <label>
             Email:
             <input type="email" name="email" required onChange={handleChange} />

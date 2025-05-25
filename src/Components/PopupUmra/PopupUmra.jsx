@@ -7,14 +7,20 @@ function PopupUmra({ onClose }) {
     numberOfPersons: '',
     numberOfDays: '',
     travelDate: '',
+    ReturnDate: '',
     travelFrom: '',
     travelTo: '',
-    hotelType: 'economy', // default value
+    hotelType: 'economy',
     transportType: 'Public',
     name: '',
     contactNumber: '',
     email: '',
+    nightsInMakkah: '',      
+    nightsInMadinah: '',      
+    returnCity: '', 
+
   });
+  
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -42,9 +48,9 @@ function PopupUmra({ onClose }) {
       subject: "New Travel Booking Request",
       from_name: formData.name,
       hotelType: hotelTypeDisplay,
-
-      ...formData,
+      ...formData, 
     };
+    
 
     try {
       const response = await axios.post("https://api.web3forms.com/submit", payload, {
@@ -90,6 +96,11 @@ function PopupUmra({ onClose }) {
             Date of Travel:
             <input type="date" name="travelDate" required onChange={handleChange} />
           </label>
+          
+          <label>
+          Return Date:
+          <input type="date" name="ReturnDate" required onChange={handleChange} />
+          </label>
           <label>
             Travel From (City):
             <input type="text" name="travelFrom" required onChange={handleChange} />
@@ -107,15 +118,45 @@ function PopupUmra({ onClose }) {
     <option value="4star">4 Star</option>
   </select>
 </label>
+<label>
+  Nights in Makkah:
+  <input
+    type="number"
+    name="nightsInMakkah"
+    min="0"
+    onChange={handleChange}
+    value={formData.nightsInMakkah}
+    placeholder="e.g., 3"
+  />
+</label>
+
+<label>
+  Nights in Madinah:
+  <input
+    type="number"
+    name="nightsInMadinah"
+    min="0"
+    onChange={handleChange}
+    value={formData.nightsInMadinah}
+    placeholder="e.g., 4"
+  />
+</label>
+
 
           <label>
             Transport Type:
             <select name="transportType" value={formData.transportType} onChange={handleChange}>
-              <option value="Public">Public</option>
-              <option value="Private">Private</option>
+              <option value="Public">Public(Sharing Bus)</option>
+              <option value="Private">Private(Private Car/Van)</option>
             </select>
           </label>
-
+          <label>
+  Return City:
+  <select name="returnCity" value={formData.returnCity} onChange={handleChange} required>
+    <option value="Jeddah">Jeddah</option>
+    <option value="Madina">Madina</option>
+  </select>
+</label>
           <hr />
           <h4>Contact Details <span className={styles.required}>*</span></h4>
 

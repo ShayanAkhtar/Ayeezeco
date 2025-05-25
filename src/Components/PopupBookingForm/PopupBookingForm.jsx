@@ -9,18 +9,29 @@ function PopupBookingForm({ onClose }) {
     departureDate: "",
     arrivalDate: "",
     wheelchair: "No",
+    numberOfPerson: "",
     fullName: "",
     contactNumber: "",
     email: "",
-    tripType: "oneway", // default value
-
+    tripType: "oneway",
   });
 
+  const [multiSectorDates, setMultiSectorDates] = useState([""]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleMultiSectorChange = (index, value) => {
+    const newDates = [...multiSectorDates];
+    newDates[index] = value;
+    setMultiSectorDates(newDates);
+  };
+
+  const addMultiSectorDate = () => {
+    setMultiSectorDates(prev => [...prev, ""]);
   };
 
   const handleSubmit = async (e) => {
@@ -33,8 +44,8 @@ function PopupBookingForm({ onClose }) {
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: "New Booking Request",
       from_name: formData.fullName,
-      trip_type: formData.tripType, // explicit key if needed
       ...formData,
+      multiSectorDates: formData.tripType === "multisector" ? multiSectorDates : undefined,
     };
 
     try {
@@ -71,47 +82,83 @@ function PopupBookingForm({ onClose }) {
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
             From (Airport):
-            <input type="text" name="from" onChange={handleChange} />
+            <input type="text" name="from" value={formData.from} onChange={handleChange} />
           </label>
           <label>
             To (Airport):
-            <input type="text" name="to" onChange={handleChange} />
+            <input type="text" name="to" value={formData.to} onChange={handleChange} />
           </label>
           <label>
-  Trip Type:
-  <select name="tripType" value={formData.tripType} onChange={handleChange}>
-    <option value="oneway">One Way</option>
-    <option value="return">Return</option>
-    <option value="multisector">Multi-sector</option>
-  </select>
-</label>
+            Number Of Person:
+            <input type="text" name="numberOfPerson" value={formData.numberOfPerson} onChange={handleChange} />
+          </label>
+          <label>
+            Trip Type:
+            <select name="tripType" value={formData.tripType} onChange={handleChange}>
+              <option value="oneway">One Way</option>
+              <option value="return">Return</option>
+              <option value="multisector">Multi-sector</option>
+            </select>
+          </label>
 
-          <label>
-            Departure Date:
-            <input type="date" name="departureDate" onChange={handleChange} />
-          </label>
-          <label>
-            Arrival/Return Date:
-            <input type="date" name="arrivalDate" onChange={handleChange} />
-          </label>
-          
+          {/* Trip Date Inputs */}
+          {formData.tripType === "multisector" ? (
+            <>
+              <label>Multi-sector Dates:</label>
+              {multiSectorDates.map((date, index) => (
+                <input
+                  key={index}
+                  type="date"
+                  value={date}
+                  onChange={(e) => handleMultiSectorChange(index, e.target.value)}
+                />
+              ))}
+              <button type="button" onClick={addMultiSectorDate} className={styles.addMoreButton}>
+                + Add More
+              </button>
+            </>
+          ) : (
+            <>
+              <label>
+                Departure Date:
+                <input
+                  type="date"
+                  name="departureDate"
+                  value={formData.departureDate}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Arrival/Return Date:
+                <input
+                  type="date"
+                  name="arrivalDate"
+                  value={formData.arrivalDate}
+                  onChange={handleChange}
+                />
+              </label>
+            </>
+          )}
+
           <hr />
           <h4>Contact Details <span className={styles.required}>*</span></h4>
 
           <label>
             Full Name (as on passport):
-            <input type="text" name="fullName" required onChange={handleChange} />
+            <input type="text" name="fullName" value={formData.fullName} required onChange={handleChange} />
           </label>
           <label>
             Contact Number:
-            <input type="text" name="contactNumber" required onChange={handleChange} />
+            <input type="text" name="contactNumber" value={formData.contactNumber} required onChange={handleChange} />
           </label>
           <label>
             Email:
-            <input type="email" name="email" required onChange={handleChange} />
+            <input type="email" name="email" value={formData.email} required onChange={handleChange} />
           </label>
 
-          <button type="submit" className={styles.submitButton}>Submit</button>
+          <button type="submit" className={styles.submitButton} disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Submit"}
+          </button>
         </form>
       </div>
     </div>
