@@ -15,9 +15,8 @@ function AboutUs() {
   useEffect(() => {
     const fetchGoogleReviews = async () => {
       try {
-        // Initialize the Google Maps API loader
         const loader = new Loader({
-          apiKey: "YOUR_GOOGLE_MAPS_API_KEY", // Replace with your actual API key
+          apiKey: "YOUR_GOOGLE_MAPS_API_KEY", 
           version: "weekly",
           libraries: ["places"]
         });
@@ -174,23 +173,7 @@ function AboutUs() {
               UK, and Europe, offering the best deals.
             </p>
           </div>
-          {/* <div className={styles.offer_card}>
-            <div className={styles.off_images}>
-              <img
-                style={{
-                  width: "50px",
-                  height: "50px",
-                }}
-                src="https://cdn-icons-png.flaticon.com/512/2238/2238905.png"
-                alt="Variety Icon"
-              />
-            </div>
-            <h2>Variety & Expertise</h2>
-            <p>
-              Choose from a wide range of travel options with expert guidance
-              and other services.
-            </p>
-          </div> */}
+         
           <div className={styles.offer_card}>
             <div className={styles.off_images}>
               <img
