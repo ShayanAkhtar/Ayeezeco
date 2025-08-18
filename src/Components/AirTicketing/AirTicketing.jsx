@@ -13,6 +13,8 @@ import AirTicketing1 from "../../Images/AirTicketing/AirTicketing.jpeg";
 import AirTicketing2 from "../../Images/AirTicketing/AirTicketing2.jpeg";
 import AirTicketing3 from "../../Images/AirTicketing/AirTicketing3.jpeg";
 import PopupBookingForm from "../PopupBookingForm/PopupBookingForm";
+import { FaWhatsapp } from "react-icons/fa"
+
 import mountains from "../homepage/images/mountains.png";
 function AirTicketing() {
   const [showPopup, setShowPopup] = useState(false);
@@ -102,7 +104,15 @@ function AirTicketing() {
               </p>
 
               <p className={styles.booking_info}>
-                For booking, please call 0304-111-4661 or WhatsApp 03001286661.
+                   <a
+                                            href="https://wa.me/03041286661"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.whatsapp_button}
+                                          >
+                                            <FaWhatsapp className={styles.whatsapp_icon} />
+                                            <span>Call now to Inquire more</span>
+                                          </a>
               </p>
               {/* Add this Brochure Slider Section */}
               <div className={styles.brochure_section}>
@@ -125,40 +135,42 @@ function AirTicketing() {
             </div>
           </div>
 
-          {/* Features Section */}
-          <div className={styles.features_section}>
-            <div className={styles.feature}>
-              <h4>Competitive Pricing</h4>
-              <p>
-                We offer the best rates for domestic and international flights
-                through our partnerships with airlines.
-              </p>
-            </div>
+         {/* Features Section */}
+<h2 style={{ textAlign: "center", marginBottom: "20px" }}>Why Choose Us?</h2>
+<div className={styles.features_section}>
+  <div className={styles.feature}>
+    <h4>Competitive Pricing</h4>
+    <p>
+      We offer the best rates for domestic and international flights
+      through our partnerships with airlines.
+    </p>
+  </div>
 
-            <div className={styles.feature}>
-              <h4>Worldwide Destinations</h4>
-              <p>
-                Book flights to any destination around the globe with our
-                comprehensive ticketing service.
-              </p>
-            </div>
+  <div className={styles.feature}>
+    <h4>Worldwide Destinations</h4>
+    <p>
+      Book flights to any destination around the globe with our
+      comprehensive ticketing service.
+    </p>
+  </div>
 
-            <div className={styles.feature}>
-              <h4>24/7 Support</h4>
-              <p>
-                Our dedicated team is available round the clock to assist with
-                your travel needs and concerns.
-              </p>
-            </div>
+  <div className={styles.feature}>
+    <h4>24/7 Support</h4>
+    <p>
+      Our dedicated team is available round the clock to assist with
+      your travel needs and concerns.
+    </p>
+  </div>
 
-            <div className={styles.feature}>
-              <h4>Special Packages</h4>
-              <p>
-                Enjoy exclusive deals on flight packages to popular destinations
-                like Dubai, Turkey, and Thailand.
-              </p>
-            </div>
-          </div>
+  <div className={styles.feature}>
+    <h4>Special Packages</h4>
+    <p>
+      Enjoy exclusive deals on flight packages to popular destinations
+      like Dubai, Turkey, and Thailand.
+    </p>
+  </div>
+</div>
+
 
           {/* Call to Action */}
           <div className={styles.cta_section}>

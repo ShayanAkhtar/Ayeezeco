@@ -295,3 +295,25 @@ right: -25px !important;
     font-size: 16px;
   }
 }
+.whatsapp_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* ensures icon + text are centered inside button */
+  gap: 8px;
+  color: black;
+  padding: 16px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;      /* remove underline */
+}
+
+
+.whatsapp_button:hover {
+  transform: translateY(-2px);
+}
+
+.whatsapp_icon {
+  color: #25d366;
+  font-size: 20px;
+}

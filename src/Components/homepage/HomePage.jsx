@@ -7,6 +7,7 @@ import ContactUs from "../contact-us/ContactUs";
 import BorderBox from "../common-styles/BorderBox";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { FaWhatsapp } from "react-icons/fa"
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -72,6 +73,15 @@ function HomePage() {
               Explore new cultures, meet amazing people, and create lifelong
               memories with our exceptional tours.
             </p>
+              <a
+                            href="https://wa.me/03041286661"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.whatsapp_button}
+                          >
+                            <FaWhatsapp className={styles.whatsapp_icon} />
+                            <span>Inquire Now</span>
+                          </a>
           </div>
           <div className={styles.offer_card}>
             <div className={styles.off_images}>
@@ -89,6 +99,15 @@ function HomePage() {
               Discover Pakistan's rich spiritual heritage as we guide you
               through its sacred historical sites.
             </p>
+            <a
+                            href="https://wa.me/03041286661"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.whatsapp_button}
+                          >
+                            <FaWhatsapp className={styles.whatsapp_icon} />
+                            <span>Inquire Now</span>
+                          </a>
           </div>
           <div className={styles.offer_card}>
             <div className={styles.off_images}>
@@ -106,6 +125,15 @@ function HomePage() {
               Explore new cultures, meet amazing people, and create lifelong
               memories with our exceptional tours.
             </p>
+              <a
+                            href="https://wa.me/03041286661"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.whatsapp_button}
+                          >
+                            <FaWhatsapp className={styles.whatsapp_icon} />
+                            <span>Inquire Now</span>
+                          </a>
           </div>
         </div>
       </div>

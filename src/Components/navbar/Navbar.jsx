@@ -59,7 +59,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
         <div className={styles.upper_nav_content}>
           <div className={styles.upper_nav_item}>
             <Phone size={14} className={styles.upper_nav_icon} />
-            <a href="tel:0304-111-4-651">0304-111-4-651</a>
+            <a href="tel:0304-111-4-651">0304-1286661</a>
           </div>
           <div className={styles.upper_nav_item}>
             <Mail size={14} className={styles.upper_nav_icon} />
@@ -96,7 +96,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
         >
           <div className={`${styles.navbar} max-w-screen-xl flex items-center justify-between mx-auto p-4`}>
             <div style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
-              <span className="text-3xl font-semibold whitespace-nowrap">Ayezeeco</span>
+              <span className="text-3xl font-semibold whitespace-nowrap">Aye Zee Travel & Holidays</span>
             </div>
             <div className={styles.sidebar_icon} onClick={handleShowSideMenu}>
               <i className="fa-solid fa-bars fa-xl" style={{ color: "#000000" }} />
@@ -104,13 +104,12 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
             <div className={styles.desk_links}>
               {[
                 "/",
-                "/aboutus",
+                
                 "/airticketing",
                 "/umrahpackages",
                 "/recreationaltours",
                 "/religioustour",
                 "/visaservices",
-                "/contactus",
               ].map((path, index) => (
                 <Link
                   key={index}
@@ -129,7 +128,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
                 </Link>
               ))}
               <a
-                href="https://wa.me/923226803850"
+                href="https://wa.me/03041286661"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.whatsapp_button}
@@ -147,7 +146,7 @@ function Navbar({ isWhiteBackground = false, isOfferVisible = true }) {
         >
           <div className={styles.logoouter}>
             <img src={logo || "/placeholder.svg"} alt="Logo" />
-            <h2 className={styles.logo}>Ayezeeco</h2>
+            <h2 className={styles.logo}>Aye Zee Travel & Holidays</h2>
           </div>
           <div className={styles.hor_line}></div>
           {[
